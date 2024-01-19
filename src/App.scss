@@ -1,4 +1,22 @@
-.app {
-  text-align: center;
+@import './globalStyles/main';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+#root {
+  width: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1140px;
+
+  .loading-content {
+    margin-top: 30vh;
+  }
+}

@@ -1,0 +1,38 @@
+@import './variables';
+@import './mixins';
+@import './extends';
+
+.container {
+  box-sizing: border-box;
+  padding: $padding-page 15px;
+  width: 100%;
+  max-width: $smallWidth;
+  @media (min-width: $mediumWidth) {
+    width: calc(100% - 40px);
+    max-width: calc($largeWidth - 124px);
+  }
+  @media (min-width: $largeWidth) {
+    width: calc(100% - 124px);
+    max-width: $largeWidth;
+  }
+  @media (min-width: $extraLargeWidth) {
+    width: calc(100% - 200px);
+    max-width: calc(#{$extraLargeWidth} - 200px);
+  }
+  @media (max-width: $extraSmallWidth) {
+    padding: $padding-page 10px;
+  }
+}
+
+.button {
+  border: none;
+  background-color: $fontColor;
+  border-radius: 15px;
+  color: $whiteColor;
+  padding: 5px 10px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 130px;
+  height: 40px;
+  font-size: 16px;
+}

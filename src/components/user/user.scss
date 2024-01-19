@@ -1,0 +1,17 @@
+@import '../../globalStyles/main.scss';
+
+.user {
+  padding-top: 20px;
+  box-sizing: border-box;
+  border-bottom: solid 2px $fontColor;
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  align-items: center;
+  animation: file 500ms forwards;
+  cursor: pointer;
+
+  &__btn {
+    @extend %buttonFile;
+  }
+
+}

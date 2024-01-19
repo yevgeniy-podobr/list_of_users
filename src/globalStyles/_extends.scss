@@ -1,0 +1,36 @@
+@import './variables';
+
+%buttonFile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed;
+  border-radius: 10px;
+  height: 35px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $fontColor;
+    color: $whiteColor;
+    border: none;
+  }
+  &:disabled {
+    border-color: $greyColor;
+    background-color: $greyColor;
+    color: $darkGreyColor;
+    &:hover {
+      background-color: $greyColor;
+      cursor: auto;
+    }
+  }
+}
+
+%closeBtn {
+  border: 1px solid $greyColor;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $backgroundColor;
+  }
+}

@@ -1,0 +1,24 @@
+@mixin bckImgProps(
+  $_height,
+  $_width,
+  $_url: none,
+  $_percent: 1,
+  $_maxHeight: 400px,
+) {
+  @if $_percent == 1 {
+    height: $_height;
+  } @else {
+    height: calc(100vw / #{$_percent});
+    max-height: $_maxHeight;
+  }
+
+  width: $_width;
+  @if $_url == none {
+    background-image: none;
+  } @else {
+    background-image: url($_url);
+  }
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
