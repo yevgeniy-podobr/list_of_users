@@ -4,6 +4,16 @@ import { User } from "../../components";
 
 export const ListOfUsers = () => {
   const [users, setUsers] = useState([])
+  const [searchValue, setSearchValue] = useState('')
+  const [searchUsers, setSearchUsers] = useState([])
+
+  // if you needed to receive data from the server, 
+  // you could use the lodash library so that the request would not fail every time you press a key
+  const searchHandler = (e) => {    
+    setSearchValue(e.target.value)
+    const prepareData = e.target.value ? users.filter(user => user.username.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())) : []
+    setSearchUsers(prepareData) 
+  }
 
   useEffect(() => {
     getUsers().then((res) => setUsers(res))
@@ -11,7 +21,14 @@ export const ListOfUsers = () => {
 
   return (
     <div className="list-of-users">
-      {users.map(user => {
+      <input
+        type="text" 
+        className='navbar__header-search_input'
+        placeholder="Search user..."
+        value={searchValue}
+        onChange={e => searchHandler(e)}
+      />
+      {(searchValue ? searchUsers : users).map(user => {
         return (
           <User 
             name={user.name}
