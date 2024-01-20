@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { getPosts } from "../../services/postsApi";
 import { Post } from "../../components";
+import { useLocation } from "react-router-dom";
 
 export const ListOfPosts = () => {
   const [posts, setPosts] = useState([])
+  const location = useLocation()
+  const userId = location.pathname.split('/')[2]
 
   useEffect(() => {
-    const userId = sessionStorage.getItem('userId')
-    console.log(userId);
     getPosts(userId).then((res) => setPosts(res))
-  }, [])
+  }, [userId])
 
   return (
-    <div className="list-of-users">
+    <div className="list-of-posts">
       {posts.map(post => {
         return (
           <Post 

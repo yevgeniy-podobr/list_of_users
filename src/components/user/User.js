@@ -20,15 +20,16 @@ export const User = (props) => {
       <button 
         className="user__btn" 
         onClick={() => {
-          navigate(`${route.posts}${userId}`)
-          sessionStorage.setItem('userId', userId)
+          navigate(`${route.posts}/${userId}`)
         }}
       > 
         Open posts
       </button>
       <button 
         className="user__btn" 
-        onClick={(e) => {}}
+        onClick={() => {
+          navigate(`${route.users}/${userId}/albums`)
+        }}
       > 
         Open albums
       </button>
