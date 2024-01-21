@@ -1,4 +1,33 @@
+@import '../../globalStyles/main.scss';
+
 .post {
   border: 1px black solid;
   margin-bottom: 10px;
+  padding: 10px;
+
+  &__btn {
+    @extend %button;
+    width: 70px;
+    height: 30px;
+    margin-top: 20px;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    &-title {
+      margin-bottom: 10px;
+      text-decoration: underline;
+      &_input {
+        margin-bottom: 10px;
+        height: 25px;
+        padding: 5px;
+      }
+    }
+    &-description {
+      &_textarea {
+        height: 110px;
+        padding: 5px;
+      }
+    }
+  }
 }

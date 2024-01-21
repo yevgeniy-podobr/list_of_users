@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React from 'react'
 import './navbar.scss'
 import { useNavigate } from 'react-router-dom'
 import * as route from '../../services/route'

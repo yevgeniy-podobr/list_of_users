@@ -3,6 +3,7 @@ import { getPosts } from "../../services/postsApi";
 import { Post } from "../../components";
 import { useLocation } from "react-router-dom";
 import { getUser } from "../../services/usersApi";
+import './listOfPosts.scss';
 
 export const ListOfPosts = () => {
   const [posts, setPosts] = useState([])
@@ -17,14 +18,12 @@ export const ListOfPosts = () => {
 
   return (
     <div className="list-of-posts">
-      {user && <h1>{user.name}'s posts</h1>}
+      {user && <h1 className="list-of-posts__header">{user.name}'s posts</h1>}
       {posts.map(post => {
         return (
           <Post 
-            title={post.title}
-            description={post.body}
-            userId={post.userId}
-            postId={post.id}
+            currentTitle={post.title}
+            currentDescription={post.body}
             key={post.id}
           />
         )
