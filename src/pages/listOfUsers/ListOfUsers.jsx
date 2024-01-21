@@ -55,7 +55,6 @@ export const ListOfUsers = () => {
           }
         </>
       )}
-
     </div>
   )
 }
