@@ -1,17 +1,23 @@
 @import '../../globalStyles/main.scss';
 
 .user {
-  padding-top: 20px;
-  box-sizing: border-box;
-  border-bottom: solid 2px $fontColor;
-  display: grid;
-  grid-template-columns: repeat(4, 2fr);
-  align-items: center;
-  animation: file 500ms forwards;
-  cursor: pointer;
-
-  &__btn {
-    @extend %buttonFile;
+  border: solid 2px $fontColor;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  &__name, &__username {
+    text-decoration: underline;
   }
-
+  &__name {
+    margin-bottom: 10px;
+  }
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    &-btn {
+      @extend %buttonFile;
+    }
+  }
 }

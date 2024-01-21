@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUsers } from "../../services/usersApi";
 import { User } from "../../components";
+import './listOfUsers.scss';
 
 export const ListOfUsers = () => {
   const [users, setUsers] = useState([])
@@ -23,21 +24,23 @@ export const ListOfUsers = () => {
     <div className="list-of-users">
       <input
         type="text" 
-        className='navbar__header-search_input'
+        className='list-of-users__search'
         placeholder="Search user..."
         value={searchValue}
         onChange={e => searchHandler(e)}
       />
-      {(searchValue ? searchUsers : users).map(user => {
-        return (
-          <User 
-            name={user.name}
-            userName={user.username}
-            userId={user.id}
-            key={user.id}
-          />
-        )
-      })}
+      <div className="list-of-users__content">
+        {(searchValue ? searchUsers : users).map(user => {
+          return (
+            <User 
+              name={user.name}
+              userName={user.username}
+              userId={user.id}
+              key={user.id}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }
