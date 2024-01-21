@@ -29,18 +29,23 @@ export const ListOfUsers = () => {
         value={searchValue}
         onChange={e => searchHandler(e)}
       />
-      <div className="list-of-users__content">
-        {(searchValue ? searchUsers : users).map(user => {
-          return (
-            <User 
-              name={user.name}
-              userName={user.username}
-              userId={user.id}
-              key={user.id}
-            />
-          )
-        })}
-      </div>
+      {searchValue && !searchUsers.length
+        ? (
+          <div className="list-of-users__empty">User not found...</div>
+        ) : (
+          <div className="list-of-users__content">
+            {(searchValue ? searchUsers : users).map(user => {
+              return (
+                <User 
+                  name={user.name}
+                  userName={user.username}
+                  userId={user.id}
+                  key={user.id}
+                />
+              )
+            })}
+          </div>
+        )}
     </div>
   )
 }

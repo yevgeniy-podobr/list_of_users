@@ -7,12 +7,10 @@ export const Navbar = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="navbar container">
-      <div className="navbar__wrapper">        
-        <p className="navbar__authorization-sign-out" onClick={() => navigate(`${route.users}`)}>
-          Back to users
-        </p>
-      </div>
+    <div className="navbar container">     
+      <button className="navbar__btn" onClick={() => navigate(`${route.users}`)}>
+        Back to users
+      </button>
     </div>
   )
 }

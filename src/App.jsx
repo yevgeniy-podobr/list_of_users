@@ -1,12 +1,14 @@
 import './App.scss';
 import { ToastContainer } from 'react-toastify';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import * as route from './services/route'
 import { ListOfAlbums, ListOfUsers } from './pages';
 import { ListOfPosts } from './pages/listOfPosts/ListOfPosts';
 import { Navbar } from './components';
 
 function App() {
+  const location = useLocation()
+
   return (
     <div className="app">
       <ToastContainer
@@ -15,7 +17,7 @@ function App() {
         autoClose={3000}
         theme="light"
       />
-      <Navbar/>
+      {location.pathname !== route.users && <Navbar/>}
       <div className="app__wrapper container">
         <Routes>
           <Route path={route.users} element={<ListOfUsers />}/>

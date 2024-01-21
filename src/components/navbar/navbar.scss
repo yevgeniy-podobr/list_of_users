@@ -1,61 +1,8 @@
 @import '../../globalStyles/main';
 
 .navbar {
-  display: flex;
-  justify-content: center;
-  height: $navbarHeight;
-  background-color: $whiteColor;
-  width: 100%;
-
-  &__wrapper  {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  padding-bottom: 0;
+  &__btn {
+    @extend %button;
   }
-  
-  &__header {
-    display: flex;
-    align-items: center;
-    
-    &-title {
-      font-size: 24px;
-      font-weight: 700;
-      @media (max-width: $mediumWidth) {
-        font-size: 18px;
-      }
-    }
-    &-search {
-      margin-left: 20px;
-      @media (max-width: $mediumWidth) {
-        margin-left: 0;
-        margin-right: 20px;
-      }
-    }
-    @media (min-width: $smallWidth) {
-      margin-right: 15px;
-    }
-  }
-  &__authorization {
-    display: flex;
-    align-items: center;
-
-    &-avatar {
-      margin-right: 10px;
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      cursor: pointer;
-    }
-    &-sign-out {
-      text-decoration: underline;
-      cursor: pointer;
-      font-size: 20px;
-      @media (max-width: $mediumWidth) {
-        font-size: 16px;
-      }
-    }
-  }
-
 }
