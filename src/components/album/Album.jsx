@@ -2,27 +2,32 @@ import React, { useState } from "react";
 import './album.scss'
 
 export const Album = (props) => {
-  const { title } = props
-  const [resultTitle, setResultTitle] = useState(title)
+  const { currenAlbumTitle } = props
+  const [title, setTitle] = useState(currenAlbumTitle)
   const [isEdit, setIsEdit] = useState(false)
 
   return (
     <div className="album">
       {!isEdit ? (
         <p className="album__title">
-          {resultTitle}
+          {title}
         </p>
       ) : (
-      <input
-        type="text" 
-        className='album__title-input'
-        placeholder="Change title..."
-        value={resultTitle}
-        onChange={e => setResultTitle(e.target.value)}
-      />
+        <input
+          type="text" 
+          className='album__title-input'
+          placeholder="Change title..."
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+        />
       )}
-      <button onClick={() => setIsEdit(!isEdit)}
-      >{!isEdit ? "Edit" : "Save"}</button>
+      <button 
+        className="album__btn"
+        onClick={() => setIsEdit(!isEdit)}
+        disabled={isEdit && !title}
+      >
+        {!isEdit ? "Edit" : "Save"}
+      </button>
     </div>
   )
 }

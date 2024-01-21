@@ -1,7 +1,9 @@
 @import '../../globalStyles/main';
 
 .navbar {
-  padding-bottom: 0;
+  &.container {
+    padding-bottom: 0;
+  }
   &__btn {
     @extend %button;
   }
