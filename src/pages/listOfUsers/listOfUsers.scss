@@ -1,11 +1,13 @@
 .list-of-users {
   width: 100%;
   &__header {
+    display: flex;
     &-search {
       height: 30px;
       padding: 5px;
     }
     &-sort {
+      padding-top: 4px;
       margin-left: 20px;
     }
   }
